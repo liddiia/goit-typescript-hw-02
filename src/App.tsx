@@ -7,7 +7,7 @@ import ImageGallery from "./components/ImageGallery/ImageGallery";
 import LoadMoreButton from "./components/LoadMoreButton/LoadMoreButton";
 import ImageModal from "./components/ImageModal/ImageModal";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
-import { Image } from "./types";
+import { Image, Images } from "./types";
 
 const App = () => {
   const [images, setImages] = useState<Image[]>([]);
@@ -25,7 +25,7 @@ const App = () => {
   const BASE_URL: string =
     "https://api.unsplash.com/search/photos?orientation=landscape";
 
-  const fetchImages = async (query: string, page: number = 1, perPage: number = 12) => {
+  const fetchImages = async (query: string, page: number = 1, perPage: number = 12):Promise<Images> => {
     try {
       const response = await axios.get(BASE_URL, {
         params: {

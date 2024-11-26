@@ -8,3 +8,9 @@ export interface Image {
     };
    
   }
+  export interface Images {
+     total: number,
+    total_pages: number,
+    results: Image[];
+    };
+   
