@@ -1,6 +1,5 @@
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, ChangeEvent } from "react";
 import css from "../SearchBar/SearchBar.module.css";
-
 import toast, { Toaster } from "react-hot-toast";
 
 interface SearchBarProps {
@@ -20,6 +19,10 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     setQuery("");
   };
 
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setQuery(e.target.value);
+  };
+
   return (
     <header className={css.searchPlace}>
       <form onSubmit={handleSubmit}>
@@ -28,19 +31,17 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
           name="input"
           type="text"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={handleChange}
           placeholder="Search images and photos"
         />
         <button className={css.searchButton} type="submit">
           Search
         </button>
       </form>
-      <Toaster
-        position="top-left"
-        reverseOrder={false}
-      />
+      <Toaster position="top-left" reverseOrder={false} />
     </header>
   );
 };
 
 export default SearchBar;
+
