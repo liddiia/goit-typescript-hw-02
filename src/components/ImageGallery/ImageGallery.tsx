@@ -1,8 +1,16 @@
+
+import { Image } from "types";
 import ImageGalleryItem from "../ImageGalleryItem/ImageGalleryItem"
 import css from './ImageGallary.module.css'
 
 
-const ImageGallary = ({images, onClick}) => {
+
+interface ImageGallaryProps {
+  images: Image[];
+  onClick:(image: Image)=>void;
+}
+
+const ImageGallary: React.FC <ImageGallaryProps> = ({images, onClick})=>  {
  
   return (
     <div className={css.imageGallary }>

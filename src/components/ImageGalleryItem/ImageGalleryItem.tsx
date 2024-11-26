@@ -1,7 +1,13 @@
 
+import { Image } from '../../types';
 import css from './ImageGalleryItem.module.css'
 import { FiThumbsUp } from "react-icons/fi"; 
-const ImageGalleryItem = ({image, onClick}) => {
+
+interface ImageGalleryItemProps {
+  image:Image;
+  onClick: (regular:string) => void;
+}
+const ImageGalleryItem: React.FC <ImageGalleryItemProps> = ({image, onClick}) => {
   
   return (
 
